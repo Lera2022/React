@@ -1,36 +1,37 @@
-import React, { useEffect, useState } from 'react';
+import { useTheme } from '@emotion/react';
+import { Checkbox, createTheme, FormControl, FormControlLabel, FormGroup, ThemeProvider } from '@mui/material';
+import Button from '@mui/material/Button';
+import { Box } from '@mui/system';
 import './App.css';
+import PropTypes from 'prop-types'
+import React, { useEffect, useRef, useState } from 'react';
 
 
 
+const darkTheme = createTheme({
+  palette:{
+    mode:'dark'
+  }
+})
 
+const lightTheme = createTheme({
+  palette:{
+    mode:'light',
+    primary:{
+      main:'#a032a8',
+    },
+    secondary:{
+      main:'#d8addb'
+    },
+    background:{
+      paper:'#000'
+    },
+    text:{
+      primary: '#173A5E',
+    }
+  },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+})
 
 
 function App() {
