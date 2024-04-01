@@ -1,3 +1,5 @@
+// 31
+
 import { useTheme } from '@emotion/react';
 import { Checkbox, createTheme, FormControl, FormControlLabel, FormGroup, ThemeProvider } from '@mui/material';
 import Button from '@mui/material/Button';
@@ -52,7 +54,12 @@ function App() {
         <InputAutoFocus data={obj}/>
         <Button variant="contained" onClick={()=>{setIsDark(pervstate => !pervstate)}}>Сменить тему</Button>
 
-        <RenderTree/>
+        {/* <RenderTree/> */}
+
+        {
+          ['a', 'b'].map((e,i)=><div key={i}>{e}</div>)
+        }
+        
       </div>
     </ThemeProvider>
   );
