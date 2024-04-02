@@ -145,7 +145,7 @@ const RenderTreeChild1 = ()=>{
   console.log('child1')
 
   return(
-    <button onClick={()=>{setState(p =!p)}}>Child 1</button>
+    <button onClick={()=>{setState(p => !p)}}>Child 1</button>
   )
 }
 
