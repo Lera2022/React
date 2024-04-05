@@ -1,8 +1,30 @@
 import './App.css';
 import React, {useState, useEffect} from 'react'
+import { Checkbox, createTheme, FormControl, FormControlLabel, FormGroup, ThemeProvider } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
+
+const theme = createTheme({
+  palette:{
+    mode:'light',
+    primary:{
+      main:'#999999',
+    },
+    secondary:{
+      main:'#d8addb'
+    },
+    background:{
+      paper:'#000'
+    },
+    text:{
+      primary: '#173A5E',
+    }
+  },
+
+})
 
 function App() {
   
@@ -23,19 +45,23 @@ function App() {
   },[messageList])
 
   return (
+    <ThemeProvider theme>
     <div className='App'>
-      <Form data={messageBody} setData = {setMessageBody} setMessage = {setMessageList}></Form>
-      <div className='messageList'>
+      <Form data={messageBody} setData = {setMessageBody} setMessage = {setMessageList} ></Form>
+      <div className='messageList' style = {{background:theme.palette.primary.main}}>
         {
           // messageList.map((e,i)=><Message text={e.text} author ={e.author} key = {i}/>)
           messageList.map((e,i)=><ListItemText primary={e.text} secondary={e.author} />)
         }
       </div>
     </div>
+    </ThemeProvider>
   )
 }
 
 export default App;
+
+
 
 const Form = ({data, setData, setMessage}) =>{
 
@@ -78,3 +104,5 @@ const Form = ({data, setData, setMessage}) =>{
 //     </div>
 //   )
 // }
+
+const Chats = []
