@@ -47,6 +47,7 @@ function App() {
   return (
     <ThemeProvider theme>
     <div className='App'>
+      <ChatsList />
       <Form data={messageBody} setData = {setMessageBody} setMessage = {setMessageList} ></Form>
       <div className='messageList' style = {{background:theme.palette.primary.main}}>
         {
@@ -105,4 +106,22 @@ const Form = ({data, setData, setMessage}) =>{
 //   )
 // }
 
-const Chats = []
+
+const ChatsList = () =>{
+  
+  const chats = [
+    {
+      id: 0,
+      name: 'Alex'
+    },
+    {
+      id: 1,
+      name: 'Mary'
+    }
+  ]
+  return(
+    <List>
+{chats.map((e,i)=><ListItem key = {e[i].id}>{e[i].name}</ListItem>)}
+    </List>
+  )
+}
