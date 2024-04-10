@@ -35,3 +35,43 @@ const Routed = () =>{
         </>
     )
 }
+
+export default Routed
+
+const CompA = () => <div style={{height:'50vh', background: '#ed8551', width:'100%'}}>Компонент 1</div>
+
+const Chats = () => {
+    const {chatID} = useParams()
+
+    // console.log(useMatch('/chats/chat1'))
+    console.log(chatID + 'id из хука useParams')
+    const [chats, setChats] = useState([
+        {
+            id:'chat1',
+            messages:["сообщение 1"]
+        },
+        {
+            id: 'chat2',
+            messages:["сообщение 1", "сообщение 2", "сообщение 3"]
+        }
+    ])
+
+    const id = chats.findIndex(x => x.id === chatID)
+
+    return(
+        <div style={{height:'50vh', background:'#51afed', width:'100%'}}>
+
+            <Link to={'/chats/chat1'}>Чат1</Link>
+            <Link to={'/chats/chat2'}>Чат2</Link>
+
+            <h1>Чаты</h1>
+            <div>
+                {
+                    chatID && chats[id]?.messages.map(e => <h2>{e}</h2>)
+                }
+            </div>
+        </div>
+    )
+}
+
+const CompC = () => <div style={{height:'50vh', background:'#c9c9c9', width:'100%'}}>Компонент 3</div>
