@@ -109,7 +109,7 @@ const Form = ({data, setData, setMessage}) =>{
 
 const ChatsList = () =>{
   
-  const chats = [
+  const [chats, setChats] = useState([
     {
       id: 0,
       name: 'Alex'
@@ -118,10 +118,11 @@ const ChatsList = () =>{
       id: 1,
       name: 'Mary'
     }
-  ]
+  ])
+
   return(
     <List>
-{chats.map((e,i)=><ListItem key = {e[i].id}>{e[i].name}</ListItem>)}
+      {chats.name.map(e => <ListItem>{e}</ListItem>)}
     </List>
   )
 }
