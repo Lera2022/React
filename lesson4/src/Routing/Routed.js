@@ -7,14 +7,16 @@ import {
     Link,
     useParams,
     useRoutes,
-    useMatch
+    useMatch,
+    Navigate,
+    useNavigate
 } from "react-router-dom";
 
 const Routed = () =>{
 
     return(
         <>
-        <Route path="/" element = {<CompA/>}/>
+        {/* <Route path="/" element = {<CompA/>}/> */}
         <BrowserRouter>
             <div style={{width:'1000px', display:'flex'}}>
                 <Link to='/'>Компонент1</Link>
@@ -38,10 +40,23 @@ const Routed = () =>{
 
 export default Routed
 
+const Redirector = ({status, children}) => !status ? <Navigate to = {'/login'}/> : {children}
+
+{/* <Redirector><Comp></Comp></Redirector> */}
+
 const CompA = () => <div style={{height:'50vh', background: '#ed8551', width:'100%'}}>Компонент 1</div>
 
 const Chats = () => {
-    const {chatID} = useParams()
+    const chatID = useParams()
+    const nav = useNavigate()
+
+    // useEffect(()=>{
+    //     setTimeout(()=>{
+    //         nav('/')
+    //     }, 1000)
+    // })
+
+    // <Navigate to/>
 
     // console.log(useMatch('/chats/chat1'))
     console.log(chatID + 'id из хука useParams')

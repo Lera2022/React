@@ -46,8 +46,10 @@ return (
     {/* {modal === true &&
     <Modal setModal={setModal}>
       <p>модальное окно</p>
+      <DivWithChild>
+        <p>Чайлд пропс</p>
+      </DivWithChild>
     </Modal>} */}
-
 
     {/* <button onClick = {()=>{
       setColor(prev => !prev)
@@ -65,7 +67,7 @@ return (
 
 export default App;
 
-    const Abc = ({children, isLoading}) => isLoading ? <Loader></Loader> : {children}
+    // const Abc = ({children, isLoading}) => isLoading ? <Loader></Loader> : {children}
 
 
 const DivWithChild = ({children}) =>{

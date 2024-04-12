@@ -1,0 +1,19 @@
+.App {
+  text-align: center;
+}
+
+.Form {
+  margin: 30px;
+}
+
+.Input {
+  font-size: large;
+  margin: 25px;
+  padding: 10px;
+}
+
+.Button {
+  font-size: large;
+  padding: 10px;
+  background-color: yellow;
+}
