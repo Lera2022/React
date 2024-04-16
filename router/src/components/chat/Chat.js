@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 
 const Chat = ({chat}) => {
-    console.log(chat.message)
+    console.log(chat.messages)
     return (
         <div className="chatItems">
             {

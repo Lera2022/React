@@ -52,11 +52,13 @@ const Chats = () => {
 
     // useEffect(()=>{
     //     setTimeout(()=>{
-    //         nav('/')
+    //         nav('/') - принудительно перенаправляет на "главную" через
+    //                                                              секунду
     //     }, 1000)
     // })
 
     // <Navigate to/>
+    // useNavigate('')
 
     // console.log(useMatch('/chats/chat1'))
     console.log(chatID + 'id из хука useParams')

@@ -74,7 +74,7 @@ const ChatList = ({chats}) =>{
             {chats.map((e,id) =>
                 <div key={id}>
                     <p className="chatDelete">❌</p>
-                    <Link to={`${id}`}>{e.recipient}</Link>
+                    <Link to={`chat${id}`}>{e.recipient}</Link>
                 </div>)}
         </>
     )
