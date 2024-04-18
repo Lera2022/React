@@ -6,12 +6,12 @@ import { useDispatch, useSelector } from "react-redux"
 //     payload: value
 // })
 
-state = {
-    USER,
-    ADMIN,
-    MODAL,
-    DATA,
-}
+// state = {
+//     USER,
+//     ADMIN,
+//     MODAL,
+//     DATA,
+// }
 
 const Toggler = () =>{
     //Редакс

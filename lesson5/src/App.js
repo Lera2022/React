@@ -12,19 +12,20 @@ const AdminContext = React.createContext()
 
 
 //Функция высшего порядка
-// const greaterThan = (n) => {
-//   return (m) => {
-//     return (m > n)
-//   }
-// }
+const greaterThan = (n) => {
+  return (m) => {
+    return (m > n)
+  }
+}
 
-// const greaterThan5 = greaterThan(5)
-// const greaterThan10 = greaterThan(10)
+const greaterThan5 = greaterThan(5)
+const greaterThan10 = greaterThan(10)
 
 // greaterThan(10)(8)
 
 // console.log(greaterThan5(10))
 // console.log(greaterThan10(8))
+// console.log(greaterThan(10)(8))
 
 function App() {
   //Стейты
@@ -58,7 +59,7 @@ function App() {
   const ModalWithProps = withProps(Modal)
 
   //Привязка контекста к компоненту
-  const CompWithContext = withContext(ContextReciever, AdminContext)
+  const CompWithContext = withContext(ContextReciever, UserContext)
 
   //Компонент для загрузки
   const CompWithLoader = withLoading(List)
@@ -66,13 +67,13 @@ function App() {
   // const CompWithLoader3 = withLoading(Profile)
 
   const isChecked = useSelector(state => state)
-  console.log(isChecked + "из redux")
+  // console.log(isChecked + "из redux")
 
   const [theme, setTheme] = useState("light")
 
   return (
     // Провайдеры (предоставляют контекст)
-    <UserContext.Provider value={{name:"John", age:23}}>
+    <UserContext.Provider value={theme}>
       <AdminContext.Provider value={"Admin"}>
         <div className='App'>
 
@@ -82,7 +83,7 @@ function App() {
           </Routes> */}
           <UserCard/>
 
-          <button onClick={()=>{setTheme('dark')}}>Сменить тему</button>
+          {/* <button onClick={()=>{setTheme('dark')}}>Сменить тему</button> */}
           <button onClick={()=>{setModal(true)}}>Открыть модальное окно</button>
 
           {
@@ -91,7 +92,7 @@ function App() {
 
           <CompWithContext/>
 
-          <CompWithLoader isLoading = {loading} data = {[1,2,3]}/>
+          <CompWithLoader isLoading = {loading} data = {[1,2,3]} /*status = {status0}*//>
           <Toggler/>
 
 
@@ -119,7 +120,7 @@ const UserCard = () =>{
   // console.log(userName)
 
   return(
-    <h1 style={themeHandler()}>Привет, {userName}</h1>
+    <h1 style={{color: userName === "dark" ? "#c9c9c9" : "#000"}}>Привет, {userName}</h1>
   )
 }
 
@@ -186,8 +187,13 @@ const withLoading = (Component) =>{
 }
 
 const List = ({data}) =>{
-
-
+  return(
+    <ul>
+        {
+          data.map((e,i)=><li key={i}>{e}</li>)
+        }
+    </ul>
+  )
 }
 // function App() {
 // const [user, setUser] = useState(null)
