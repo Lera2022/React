@@ -18,7 +18,7 @@ const Toggler = () =>{
     const isChecked = useSelector(state => state.user)
     const dispatch = useDispatch()
 
-    console.log(window.state)
+    // console.log(window.state)
     // console.log(isChecked)
     return(
         <>
