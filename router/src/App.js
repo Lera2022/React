@@ -4,6 +4,7 @@ import {Routes, Route, Link} from "react-router-dom";
 import HomePage from './pages/Home';
 import ChatsPage from './pages/Chats';
 import Chat from './components/chat/Chat';
+import ProfilePage from './pages/Profile'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='chats' element = {<ChatsPage/>}>
           <Route path=':chatId' element = {<ChatsPage/>}/>
         </Route>
+        <Route path='profile' element = {<ProfilePage/>}/>
         <Route path='*' element = {<NotFound/>}/>
       </Routes>
       </>

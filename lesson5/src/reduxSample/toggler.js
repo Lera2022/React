@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux"
 //     payload: value
 // })
 
-// state = {
+// STORE <= state = {
 //     USER,
 //     ADMIN,
 //     MODAL,
@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 const Toggler = () =>{
     //Редакс
+    // const isChecked = useSelector(state => state.user.name)
     const isChecked = useSelector(state => state.user)
     const dispatch = useDispatch()
 
@@ -23,7 +24,8 @@ const Toggler = () =>{
     return(
         <>
             <input type='checkbox' value={isChecked} onChange = {()=>{
-                dispatch({type:'SWITCH_TOGGLE',payload:['title']})
+                // dispatch({type:'SWITCH_TOGGLE',payload:['title']})
+                dispatch({type:'SWITCH_TOGGLE'})
                 // dispatch(toggleAc("someVal"))
             }}/>
         </>

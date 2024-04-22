@@ -66,7 +66,7 @@ function App() {
   // const CompWithLoader2 = withLoading(Card)
   // const CompWithLoader3 = withLoading(Profile)
 
-  const isChecked = useSelector(state => state)
+  // const isChecked = useSelector(state => state)
   // console.log(isChecked + "из redux")
 
   const [theme, setTheme] = useState("light")
