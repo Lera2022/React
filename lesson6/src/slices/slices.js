@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { useState } from "react"
 
 const initialState = [
     {
@@ -20,12 +21,13 @@ const initialState = [
 
 const chatSlice = createSlice({
     name:'chats',
-    initialState,
+    initialState,   // можно здесь присвоить данные
     reducers:{
         addChat:(state,action)=>{
-            return [...state, action.payload]
+            return [...state, action.payload]       // можно написать return state = чему-то. здесь стейт можно мутировать
         },
-        removeChat:(state)=>{
+        removeChat:(state,action)=>{
+            console.log(action)
             return [...state.filter((e,i)=> i < state.length -1 )]
         },
         //Мутация
@@ -40,3 +42,7 @@ const chatSlice = createSlice({
 
 export const {addChat,removeChat,addMessage} = chatSlice.actions
 export const chatReducer = chatSlice.reducer
+
+// const selector = (state) => () => {}
+
+// const [chats, setChats] = useState()

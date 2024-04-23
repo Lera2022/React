@@ -16,7 +16,8 @@ import { useDispatch, useSelector } from "react-redux"
 const Toggler = () =>{
     //Редакс
     // const isChecked = useSelector(state => state.user.name)
-    const isChecked = useSelector(state => state.user)
+    // const isChecked = useSelector(state => state.user)
+    const isChecked = useSelector(state => state)
     const dispatch = useDispatch()
 
     // console.log(window.state)
