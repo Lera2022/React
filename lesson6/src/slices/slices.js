@@ -25,9 +25,10 @@ const chatSlice = createSlice({
     reducers:{
         addChat:(state,action)=>{
             return [...state, action.payload]       // можно написать return state = чему-то. здесь стейт можно мутировать
+            // console.log(state, action);
         },
         removeChat:(state,action)=>{
-            console.log(action)
+            // console.log(action)
             return [...state.filter((e,i)=> i < state.length -1 )]
         },
         //Мутация
