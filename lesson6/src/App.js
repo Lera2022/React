@@ -14,14 +14,14 @@ function App(){
   useEffect(()=>{
     setTimeout(()=>{
       dispatch(closeModal())
-    },3000)
+    },6000)
   },[])
 
   return (
     <div className='App'>
       <Chats/>
-      {/* <ConnectedComp1/>
-      <ConnectedComp2/> */}
+      <ConnectedComp1/>
+      <ConnectedComp2/>
       <button onClick={()=>{
         dispatch(openModal())
       }}>Открыть окно</button>
@@ -62,8 +62,8 @@ const Comp2 = ({chats}) =>{
   )
 }
 
-// const ConnectedComp1 = connect(mapStateToProps)(Comp1)
-// const ConnectedComp2 = connect(mapStateToProps)(Comp2)
+const ConnectedComp1 = connect(mapStateToProps)(Comp1)
+const ConnectedComp2 = connect(mapStateToProps)(Comp2)
 
 // const someFunc = (props) =>{
 
