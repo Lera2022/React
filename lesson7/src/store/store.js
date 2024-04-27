@@ -1,29 +1,42 @@
-import {configureStore} from '@reduxjs/toolkit'
-import {createStore} from 'redux'
-import { chatReducer} from '../slices/slices'
-import { modalReducer } from '../slices/counter_slice'
-//toolkit
+import { configureStore, getDefaultMiddleware, combineReducers } from "@reduxjs/toolkit";
+import { itemsReducer, middlewareAlert } from "../slices/item";
+import {
+    persistStore,
+    persistReducer,
+    FLUSH,
+    REHYDRATE,
+    PAUSE,
+    PERSIST,
+    PURGE,
+    REGISTER,
+} from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+import hardSet from 'redux-persist/es/stateReconciler/hardSet'
+import autoMergeLevel2 from 'redux-persist/es/stateReconciler/autoMergeLevel2'
 
-// Toolkit
-// export const store = configureStore({
-//     reducer:{
-//         chats:chatReducer,
-//         modal:modalReducer
-//     }
-// },window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())      это можно не писать с тулкитом
+
+const persistConfig = {
+    key: 'root',
+    version:1,
+    storage,
+    stateReconciler:hardSet
+}
+
+const rootReducer = combineReducers({items: itemsReducer})
+
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+
+
+
 export const store = configureStore({
-    reducer:{
-        chats:chatReducer,
-        modal:modalReducer
-    }
+    reducer:persistedReducer,
+    middleware:(getDefaultMiddleware) =>
+    getDefaultMiddleware({
+        serializableCheck: {
+            ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
+    }).concat(middlewareAlert),
+    // preloadedState,
+    // devTools,
+
 })
-
-// combineReducers({        не нужно делать отдельно
-//     chats: chatReducer,
-//     profile: profileReducer,
-//     messages: messagesReducer,
-
-// })
-// export const store = createStore(combineReducers)
-// export const store = createStore(chatReducer,
-//     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
