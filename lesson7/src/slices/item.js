@@ -24,10 +24,10 @@ const itemSlice = createSlice({
         testMiddleware:(state, action)=>{
             state.users.push(action.payload)
         },
-        getPosts:(state, action)=>{
-            console.log(action.payload);
-            state = action.payload
-        }
+        // getPosts:(state, action)=>{
+        //     console.log(action.payload);
+        //     state = action.payload
+        // }
     },
     extraReducers:(builder) => {
         builder.addCase(fetchItems.pending, (state,action)=>{

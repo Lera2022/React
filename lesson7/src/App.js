@@ -9,21 +9,21 @@ function App() {
   const items = useSelector(state => state.items)
   const users = useSelector(state => state.items.users)
   const dispatch = useDispatch()
-  const posts = useSelector(state => state.items)
-  let a
+  // const posts = useSelector(state => state.items)
+  // let a
 
 
-  fetch('https://jsonplaceholder.typicode.com/posts').then(response => response.json()).then(json => {
-    a = json
-  })
-  dispatch(getPosts(a))
+  // fetch('https://jsonplaceholder.typicode.com/posts').then(response => response.json()).then(json => {
+  //   a = json
+  // })
+  // dispatch(getPosts(a))
   
     useEffect(()=>{
     //Кастомный мидлвэр
     //dispatch(testMiddleware("Пэйлод"))
     
     // Thunk
-    // dispatch(fetchItems())
+    dispatch(fetchItems())
   },[])
   
   return (
