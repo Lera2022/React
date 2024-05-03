@@ -10,20 +10,23 @@ function App() {
   const users = useSelector(state => state.items.users)
   const dispatch = useDispatch()
   // const posts = useSelector(state => state.items)
-  // let a
+// const [error, setError] = 
+// const [loading, setLoading] = 
 
 
-  // fetch('https://jsonplaceholder.typicode.com/posts').then(response => response.json()).then(json => {
-  //   a = json
-  // })
-  // dispatch(getPosts(a))
   
-    useEffect(()=>{
+  useEffect(()=>{
+
     //Кастомный мидлвэр
-    //dispatch(testMiddleware("Пэйлод"))
+    // dispatch(testMiddleware("Пэйлод"))
     
     // Thunk
     dispatch(fetchItems())
+    console.log(items);
+
+    // fetch('https://jsonplaceholder.typicode.com/posts').then(response => response.json()).then(json => {
+      // dispatch(getPosts(json))
+    // })
   },[])
   
   return (
