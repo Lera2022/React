@@ -1,8 +1,8 @@
-
-
-
-
-
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
+// import { createUserWithEmailAndPassword, signInWithEmailAndPassword }
+import { auth } from "../../firebase/config"
+import { setUserSettings } from "../../firebase/crud"
+import { unsetAppLoading } from "./loading-slice"
 
 
 
