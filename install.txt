@@ -1,3 +1,1 @@
-npm install -g create-react-app
-cd  C:\Users\User\Documents\сюда я установлю реакт
-create-react-app new-app
+npx create-react-app lesson8

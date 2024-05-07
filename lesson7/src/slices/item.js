@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk, applyMiddleware } from "@reduxjs/toolkit
 
 export const fetchItems = createAsyncThunk(
     'fetchItems',
-    async function(thunkApi){
+    async function(_,thunkApi){
         // try {
             
         // } catch (error) {
