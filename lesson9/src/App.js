@@ -117,7 +117,6 @@ const DataList = () => {
       {/* Кнопка разлогина - разлогин происходит локально в приложении без middleware через обычный редьюсер*/}
       <button onClick = {() => {dispatch(removeUser())}}>Выйти из аккаунта</button>
 
-
       {/* Контейнер постов */}
       <div style = {{minHeight: '50vh'}}>
 
@@ -130,7 +129,67 @@ const DataList = () => {
         }}>Добавить пост</button>
 
         {/* Список постов или лодер если грузим */}
+        {
+          loading ? <div>Грузим посты</div>
+          : <PostList data = {data} user = {isAuth.email}/>
+        }
       </div>
+    </div>
+  ) : <Navigate to = {'/login'}/>
+}
+
+// СПИСОК ПОСТОВ
+const PostList = ({data, user}) => {
+
+  return(
+    <>
+      {data.map((e, i)=>
+      e.user === user ?
+        <div key={i}>
+          <p>{e.body}</p>
+          <hr/>
+        </div>:
+        null
+      )}
+    </>
+  )
+}
+
+// ФОРМА ДОБАВИТЬ ПОСТЫ
+const PostForm = ({formData, setFormData}) => {
+
+  const user = useAuth().email
+
+  return(
+    <div>
+      <input placeholder='пост'
+      value={formData.body}
+      onChange={(e)=>{setFormData({user, body:e.target.value})}}
+      />
     </div>
   )
 }
+
+// Функция для стилизации, чтобы не хранить стили в jsx и не перегружать код компонента
+const authStyles = () => ({
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    background: '#f5f5f5',
+    height: '100vh'
+  },
+  card: {
+    padding: '30px',
+    borderRadius: '30px',
+    background: '#fff',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    height: '100px'
+  }
+})
+
+// Приватные роуты - для демонстрации, в приложении не используется
+// const PrivateRoute = ({auth, children}) => {}
