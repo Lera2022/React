@@ -20,7 +20,7 @@ export const ListHeader = ({list}) => {
 // Проверка по снепшоту, по слепку интерфейсa
 export const UiForSnapShot = ({userName}) => {
     return (
-        <div style={{display:'flex', flexDirection:'column', width: '300px', fontSize: '1rem'}}>
+        <div style={{display: 'flex', flexDirection: 'column', width: '300px', fontSize: '1rem'}}>
             <img src="https://clov.net/img/oi.jpg"/>
             <h1>{userName}</h1>
         </div>

@@ -10,7 +10,7 @@ describe('selector',()=>{
     })
 })
 //Проверка редьюсера
-describe('reducer',()=>{
+describe('reducer', ()=>{
     //На инишл стейт
     test('shoud reducer return initial state ', ()=>{
         const result = counterReducer(undefined, {type:''})

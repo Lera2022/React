@@ -2,7 +2,6 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Posts, { Button, Search } from './posts'
 
-
 // Создаём фиктивную функцию
 const onChange = jest.fn()
 
@@ -18,7 +17,7 @@ describe('Search on change works', ()=>{
 
 // Тестирование асинхронных запросов и взаимодействие
 describe('Posts async', ()=>{
-    test('got fetch data',async()=>{
+    test('got fetch data', async()=>{
         render(<Posts/>)
         //без await - ошибка
         screen.debug()
